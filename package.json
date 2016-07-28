@@ -1,0 +1,35 @@
+{
+  "name": "fdg-engineering-web",
+  "version": "1.0.0",
+  "description": "WebApp for FDG Engineering",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/prodigytech/fdg-engineering-web.git"
+  },
+  "author": "Andres Lastra",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/prodigytech/fdg-engineering-web#readme",
+  "dependencies": {
+    "async": "^2.0.0-rc.5",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "mongoose-schema-extend": "^0.2.2",
+    "nodemailer": "^2.4.2",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  }
+}

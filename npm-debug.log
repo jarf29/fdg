@@ -1,0 +1,234 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'handlebars-from-helpers' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.6
+4 verbose install initial load of /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/package.json
+5 warn package.json fdg-engineering-web@1.0.0 No README data
+6 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/accepts/package.json
+7 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/align-text/package.json
+8 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/amdefine/package.json
+9 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/array-flatten/package.json
+10 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/asap/package.json
+11 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/async/package.json
+12 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/balanced-match/package.json
+13 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/base64-url/package.json
+14 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/bcryptjs/package.json
+15 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/bluebird/package.json
+16 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/body-parser/package.json
+17 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/brace-expansion/package.json
+18 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/bson/package.json
+19 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/bytes/package.json
+20 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/camelcase/package.json
+21 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/center-align/package.json
+22 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/cliui/package.json
+23 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/concat-map/package.json
+24 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/connect-flash/package.json
+25 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/content-disposition/package.json
+26 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/content-type/package.json
+27 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/cookie/package.json
+28 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/cookie-parser/package.json
+29 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/cookie-signature/package.json
+30 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/core-util-is/package.json
+31 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/crc/package.json
+32 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/debug/package.json
+33 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/decamelize/package.json
+34 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/define-properties/package.json
+35 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/depd/package.json
+36 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/destroy/package.json
+37 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/ee-first/package.json
+38 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/es6-promise/package.json
+39 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/escape-html/package.json
+40 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/etag/package.json
+41 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/express/package.json
+42 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/express-handlebars/package.json
+43 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/express-messages/package.json
+44 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/express-session/package.json
+45 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/express-validator/package.json
+46 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/finalhandler/package.json
+47 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/foreach/package.json
+48 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/forwarded/package.json
+49 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/fresh/package.json
+50 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/function-bind/package.json
+51 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/glob/package.json
+52 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/graceful-fs/package.json
+53 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/handlebars/package.json
+54 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/handlebars-helpers/package.json
+55 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/hooks-fixed/package.json
+56 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/http-errors/package.json
+57 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/iconv-lite/package.json
+58 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/inflight/package.json
+59 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/inherits/package.json
+60 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/ipaddr.js/package.json
+61 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/is-buffer/package.json
+62 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/isarray/package.json
+63 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/kareem/package.json
+64 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/kind-of/package.json
+65 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/kinvey/package.json
+66 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/lazy-cache/package.json
+67 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/lodash/package.json
+68 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/longest/package.json
+69 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/media-typer/package.json
+70 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/merge-descriptors/package.json
+71 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/methods/package.json
+72 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mime/package.json
+73 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mime-db/package.json
+74 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mime-types/package.json
+75 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/minimatch/package.json
+76 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/minimist/package.json
+77 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mongodb/package.json
+78 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mongodb-core/package.json
+79 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mongoose/package.json
+80 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mongoose-schema-extend/package.json
+81 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mpath/package.json
+82 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mpromise/package.json
+83 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/mquery/package.json
+84 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/ms/package.json
+85 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/muri/package.json
+86 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/negotiator/package.json
+87 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/nodemailer/package.json
+88 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/object-keys/package.json
+89 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/object.assign/package.json
+90 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/on-finished/package.json
+91 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/on-headers/package.json
+92 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/once/package.json
+93 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/optimist/package.json
+94 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/parseurl/package.json
+95 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/passport/package.json
+96 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/passport-http/package.json
+97 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/passport-local/package.json
+98 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/passport-strategy/package.json
+99 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/path-is-absolute/package.json
+100 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/path-to-regexp/package.json
+101 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/pause/package.json
+102 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/promise/package.json
+103 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/proxy-addr/package.json
+104 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/qs/package.json
+105 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/range-parser/package.json
+106 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/raw-body/package.json
+107 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/readable-stream/package.json
+108 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/regexp-clone/package.json
+109 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/repeat-string/package.json
+110 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/require_optional/package.json
+111 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/resolve-from/package.json
+112 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/right-align/package.json
+113 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/semver/package.json
+114 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/send/package.json
+115 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/serve-static/package.json
+116 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/sliced/package.json
+117 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/source-map/package.json
+118 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/statuses/package.json
+119 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/string_decoder/package.json
+120 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/type-is/package.json
+121 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/uglify-js/package.json
+122 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/uglify-to-browserify/package.json
+123 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/uid-safe/package.json
+124 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/unpipe/package.json
+125 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/utils-merge/package.json
+126 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/validator/package.json
+127 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/vary/package.json
+128 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/window-size/package.json
+129 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/wordwrap/package.json
+130 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/wrappy/package.json
+131 verbose installManyTop reading scoped package data from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/node_modules/yargs/package.json
+132 info package.json asap@2.0.3 license should be a valid SPDX license expression
+133 info package.json connect-flash@0.1.1 No license field.
+134 info package.json express-messages@1.0.0 No license field.
+135 info package.json function-bind@1.1.0 No license field.
+136 info package.json hooks-fixed@1.1.0 No license field.
+137 info package.json kareem@1.0.1 license should be a valid SPDX license expression
+138 info package.json kinvey@1.6.8 No license field.
+139 info package.json longest@1.0.1 license should be a valid SPDX license expression
+140 info package.json mime@1.3.4 No license field.
+141 info package.json ms@0.7.1 No license field.
+142 info package.json optimist@0.6.1 license should be a valid SPDX license expression
+143 info package.json passport-http@0.3.0 No license field.
+144 info package.json passport-local@1.0.0 No license field.
+145 info package.json passport-strategy@1.0.0 No license field.
+146 info package.json pause@0.0.1 No repository field.
+147 info package.json pause@0.0.1 No license field.
+148 info package.json string_decoder@0.10.31 string_decoder is also the name of a node core module.
+149 info package.json utils-merge@1.0.0 No license field.
+150 info package.json window-size@0.1.0 No license field.
+151 verbose readDependencies loading dependencies from /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web/package.json
+152 silly cache add args [ 'handlebars-from-helpers', null ]
+153 verbose cache add spec handlebars-from-helpers
+154 silly cache add parsed spec Result {
+154 silly cache add   raw: 'handlebars-from-helpers',
+154 silly cache add   scope: null,
+154 silly cache add   name: 'handlebars-from-helpers',
+154 silly cache add   rawSpec: '',
+154 silly cache add   spec: 'latest',
+154 silly cache add   type: 'tag' }
+155 silly addNamed handlebars-from-helpers@latest
+156 verbose addNamed "latest" is being treated as a dist-tag for handlebars-from-helpers
+157 info addNameTag [ 'handlebars-from-helpers', 'latest' ]
+158 silly mapToRegistry name handlebars-from-helpers
+159 silly mapToRegistry using default registry
+160 silly mapToRegistry registry https://registry.npmjs.org/
+161 silly mapToRegistry uri https://registry.npmjs.org/handlebars-from-helpers
+162 verbose addNameTag registry:https://registry.npmjs.org/handlebars-from-helpers not in flight; fetching
+163 verbose request uri https://registry.npmjs.org/handlebars-from-helpers
+164 verbose request no auth needed
+165 info attempt registry request try #1 at 6:04:14 PM
+166 verbose request id 47d556604e22435b
+167 http request GET https://registry.npmjs.org/handlebars-from-helpers
+168 http 404 https://registry.npmjs.org/handlebars-from-helpers
+169 verbose headers { 'content-type': 'application/json',
+169 verbose headers   'cache-control': 'max-age=0',
+169 verbose headers   'content-length': '2',
+169 verbose headers   'accept-ranges': 'bytes',
+169 verbose headers   date: 'Fri, 15 Jul 2016 23:04:15 GMT',
+169 verbose headers   via: '1.1 varnish',
+169 verbose headers   age: '0',
+169 verbose headers   connection: 'keep-alive',
+169 verbose headers   'x-served-by': 'cache-mia1326-MIA',
+169 verbose headers   'x-cache': 'MISS',
+169 verbose headers   'x-cache-hits': '0',
+169 verbose headers   'x-timer': 'S1468623855.390935,VS0,VE98',
+169 verbose headers   vary: 'Accept-Encoding' }
+170 silly get cb [ 404,
+170 silly get   { 'content-type': 'application/json',
+170 silly get     'cache-control': 'max-age=0',
+170 silly get     'content-length': '2',
+170 silly get     'accept-ranges': 'bytes',
+170 silly get     date: 'Fri, 15 Jul 2016 23:04:15 GMT',
+170 silly get     via: '1.1 varnish',
+170 silly get     age: '0',
+170 silly get     connection: 'keep-alive',
+170 silly get     'x-served-by': 'cache-mia1326-MIA',
+170 silly get     'x-cache': 'MISS',
+170 silly get     'x-cache-hits': '0',
+170 silly get     'x-timer': 'S1468623855.390935,VS0,VE98',
+170 silly get     vary: 'Accept-Encoding' } ]
+171 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/handlebars-from-helpers
+171 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+171 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
+171 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+171 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+171 verbose stack     at emitTwo (events.js:87:13)
+171 verbose stack     at Request.emit (events.js:172:7)
+171 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+171 verbose stack     at emitOne (events.js:82:20)
+171 verbose stack     at Request.emit (events.js:169:7)
+171 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+172 verbose statusCode 404
+173 verbose pkgid handlebars-from-helpers
+174 verbose cwd /Users/osiristeran/Documents/Andre's Stuffs/Projects/FDG/fdg-engineering-web
+175 error Darwin 14.0.0
+176 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "handlebars-from-helpers"
+177 error node v4.2.6
+178 error npm  v2.14.12
+179 error code E404
+180 error 404 Registry returned 404 for GET on https://registry.npmjs.org/handlebars-from-helpers
+180 error 404
+180 error 404 'handlebars-from-helpers' is not in the npm registry.
+180 error 404 You should bug the author to publish it (or use the name yourself!)
+180 error 404 It was specified as a dependency of 'fdg-engineering-web'
+180 error 404
+180 error 404 Note that you can also install from a
+180 error 404 tarball, folder, http url, or git url.
+181 verbose exit [ 1, true ]

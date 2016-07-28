@@ -1,0 +1,141 @@
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
+        <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+        <div class="hero">
+
+          <div class="pull-left login-desc-box-l">
+            <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!</h4>
+            <div class="login-app-icons">
+              <a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
+              <a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
+            </div>
+          </div>
+          
+          <img src="/img/demo/iphoneview.png" alt="" class="pull-right display-image" style="width:210px">
+          
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h5 class="about-heading">Not just your average template!</h5>
+            <p>
+              Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <div class="well no-padding">
+
+          <form method="post"  action="/users/register" id="smart-form-register" class="smart-form client-form">
+            <header>
+              Registro de Usuario
+            </header>
+
+            <fieldset>
+              <!--Username-->
+              <section>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="text" name="username" placeholder="Nombre de Usuario">
+                  <b class="tooltip tooltip-bottom-right">Crea tu usuario</b> </label>
+              </section>
+              <!--Email-->
+              <section>
+                <label class="input"> <i class="icon-append fa fa-envelope"></i>
+                  <input type="email" name="email" placeholder="Email">
+                  <b class="tooltip tooltip-bottom-right">Ingresa tu Email</b> </label>
+              </section>              
+              <!--Nombre-->
+              <section>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="text" name="name" placeholder="Nombre">
+                  <b class="tooltip tooltip-bottom-right">Cual es tu nombre?</b> </label>
+              </section>
+              <!--Nombre-->
+              <section>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="text" name="lastname" placeholder="Apellido">
+                  <b class="tooltip tooltip-bottom-right">Cual es tu apellido?</b> </label>
+              </section>                            
+              <!--Password-->
+              <section>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <input type="password" name="password" placeholder="Contraseña" id="password">
+                  <b class="tooltip tooltip-bottom-right">Ingresa tu contraseña</b> </label>
+              </section>
+              <!--Confirm Password-->
+              <section>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <input type="password" name="password2" placeholder="Confirmar Contraseña">
+                  <b class="tooltip tooltip-bottom-right">Confirma tu contraseña</b> </label>
+              </section>
+            </fieldset>
+
+             <fieldset>
+                <div class="form-group">
+                  <section>
+                    <label>Empresa Asociada</label>
+                      <select name="company" style="width:100%" class="select2">
+                        <optgroup label="Alaskan/Hawaiian Time Zone">
+                            <option value="AK">Alaska</option>
+                            <option value="HI">Hawaii</option>
+                        </optgroup>
+                        <optgroup label="Pacific Time Zone">
+                            <option value="CA">California</option>
+                            <option value="NV">Nevada</option>
+                            <option value="OR">Oregon</option>
+                            <option value="WA">Washington</option>
+                        </optgroup>
+                        <optgroup label="Mountain Time Zone">
+                            <option value="AZ">Arizona</option>
+                            <option value="CO">Colorado</option>
+                            <option value="ID">Idaho</option>
+                            <option value="MT">Montana</option><option value="NE">Nebraska</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="UT">Utah</option>
+                            <option value="WY">Wyoming</option>
+                        </optgroup>                      
+                        <div class="note">
+                            <strong>Usage:</strong> &lt;select style=&quot;width:100%&quot; class=&quot;select2&quot; &quot;&gt;...&lt;/select&gt;
+                        </div></select> <i></i>
+                      
+                  </section>
+                </div>
+
+                <section>
+                  <label class="checkbox">
+                    <input type="checkbox" name="terms" id="terms">
+                    <i></i>Acepto los <a href="#" data-toggle="modal" data-target="#myModal"> Términos y Condiciones </a></label>
+                </section>
+              </fieldset>      
+            <footer>
+              <button type="submit" class="btn btn-primary">
+                Registro
+              </button>
+            </footer>
+
+            <div class="message">
+              <i class="fa fa-check"></i>
+              <p>
+                Gracias por su registro!
+              </p>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
