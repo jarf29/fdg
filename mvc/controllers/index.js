@@ -13,8 +13,8 @@ router.get('/admin/appointments', ensureAuthenticated,function(req, res){
 });
 
 // Customers->Cities
-router.get('/admin/customers/cities', ensureAuthenticated,function(req, res){
-	res.render('admin_customers_cities', {layout: 'layout', userTypeAdmin: true});
+router.get('/admin/manage_users', ensureAuthenticated,function(req, res){
+	res.render('admin_users', {layout: 'layout', userTypeAdmin: true});
 });
 
 // Customers->Companies
