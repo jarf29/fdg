@@ -23,8 +23,8 @@ var app = express();
  var hbs = exphbs.create({
      // Specify helpers which are only registered on this instance.
      helpers: {
-         verifyUserType: function (userType){ 
- 			if(userType == 'systemAdmin'){
+         userTypeAdmin: function (userType){ 
+ 			if(userType === 'Admin'){
  				return true; 
  			}else{
  				return false;

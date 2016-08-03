@@ -5,8 +5,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var nodemailer = require('nodemailer');
 var async = require('async');
 var crypto = require('crypto');
-var nodemailer = require('nodemailer');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.Types.ObjectId;
+var schedule = require('node-schedule');
 
+//Models
 var User = require('../models/user');
 
 // Dashboard
@@ -14,13 +18,11 @@ router.get('/dashboard', function(req, res){
 	if(!req.user){
 		res.redirect('/');
 	}else{
-    if(req.user.userType === "systemAdmin"){
-      res.render('admin_dashboard', {userTypeAdmin: true, pageActive: "active", pageNoActive: ""});
-    }else if(req.user.userType === "storeAdmin"){
-            res.render('dashboard', {userTypeAdmin: false});
-      }else if(req.user.userType === "storeEmployee"){
-              res.render('dashboard', {userTypeAdmin: false});
-      }
+	    if(req.user.userType_id.toString() === "57a0aba6961847160b3dae2e"){
+	      res.render('dashboard', {userTypeAdmin: true});
+	    }else{
+	      res.render('dashboard', {userTypeAdmin: false});
+	    }
 	}
 });
 
@@ -110,6 +112,8 @@ router.post('/register', function(req, res){
 	var password2 = req.body.password2;
 	var name = req.body.name;
   var lastname = req.body.lastname;
+  var userType = req.body.userType;
+  
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('lastname', 'Lastname is required').notEmpty();
@@ -131,7 +135,8 @@ router.post('/register', function(req, res){
 			email:email,
 			password: password,
       name: name,
-      lastname: lastname
+      lastname: lastname,
+      userType_id: "57a0aba6961847160b3dae2e"//userType
 		});
 
 		User.createUser(newUser, function(err, user){
@@ -178,12 +183,18 @@ router.post('/login',
   passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/',failureFlash: true}),
   function(req, res) {
     res.redirect('/');
+   var dateExpiration = new Date(Date.now() + 10000);
+       var j = schedule.scheduleJob(dateExpiration, function(){
+        console.log('Cookie expired');
+        // How can I redirect to login page after cookie session expires?
+        //redirect('/login')
+    });
   });
 
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('success_msg', 'You are logged out');
+	req.flash('success_msg', 'Ha cerrado sesión exitosamente.');
 
 	res.redirect('/');
 });

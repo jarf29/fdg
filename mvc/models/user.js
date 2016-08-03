@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     extend = require('mongoose-schema-extend');
 var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
-var ObjectId = Schema.ObjectId;
+var ObjectId = Schema.Types.ObjectId;
 
 // User Schema
 var UserSchema = mongoose.Schema({
@@ -28,10 +28,10 @@ var UserSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	userType:{
-		type: String
-/*		ref: 'userType',
-		required: true*/
+	userType_id:{
+		type: ObjectId,
+		ref: 'UserType',
+		required: true
 	},
 	createdOn: {
 		type: Date,
@@ -47,6 +47,8 @@ var UserSchema = mongoose.Schema({
 
 var User = module.exports = mongoose.model('User', UserSchema);
 
+//var options = {discriminatorKey: 'userType'};
+
 //System Administrator
 var UserSystemAdminSchema = mongoose.Schema({
     pin: {
@@ -56,8 +58,8 @@ var UserSystemAdminSchema = mongoose.Schema({
         required: true
     }
 });
-var UserSystemAdmin = module.exports = User.discriminator('UserSystemAdmin', UserSystemAdminSchema);
-/*
+var UserSystemAdmin = User.discriminator('UserSystemAdmin', UserSystemAdminSchema, {discriminatorKey: 'SystemAdmin'});
+
 //Store Administrator
 var UserStoreAdminSchema = mongoose.Schema({
 	company:{
@@ -71,7 +73,7 @@ var UserStoreAdminSchema = mongoose.Schema({
 		required:true
 	}
 });
-var UserStoreAdmin = module.exports = User.discriminator('UserStoreAdmin', UserStoreAdminSchema);
+var UserStoreAdmin = User.discriminator('UserStoreAdmin', UserStoreAdminSchema, {discriminatorKey: 'StoreAdmin'});
 
 //Employee
 var userStoreEmployeeSchema = mongoose.Schema({
@@ -85,10 +87,10 @@ var userStoreEmployeeSchema = mongoose.Schema({
 		default: false,
 		required:true
 	},
-	ApprovedBy: String, //UserName
+	ApprovedBy: String //UserName
 });
-var userStoreEmployee = module.exports = User.discriminator('userStoreEmployee', userStoreEmployeeSchema)
-*/
+var userStoreEmployee = User.discriminator('userStoreEmployee', userStoreEmployeeSchema, {discriminatorKey: 'StoreEmployee'});
+
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
 	    bcrypt.hash(newUser.password, salt, function(err, hash) {
