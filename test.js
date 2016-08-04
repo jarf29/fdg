@@ -1,8 +1,11 @@
-// var mongoose = require('mongoose').Schema.Types;
-// console.log("Running");
-// console.log(mongoose);
-
-var userType = require('./mvc/models/userType');
-var sysAdmin = new userType({ userTitle: "systemAdmin"}); 
-var storeAdmin = new userType({ userTitle: "storeAdmin"}); 
-var storeEmployee = new userType({ userTitle: "storeEmployee"}); 
+    var usrParams = {      
+      username: "andreslt90",
+			email:"a",
+			password: "b",
+      name: "c",
+      lastname: "lastname",
+      userType_id: "usrTId"
+    };
+    console.log(usrParams);
+    usrParams.pin = 9999
+    console.log(usrParams);

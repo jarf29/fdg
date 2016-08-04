@@ -15,6 +15,20 @@ var db = mongoose.connection;
 var routes = require('./mvc/controllers/index');
 var users = require('./mvc/controllers/users');
 var User = require('./mvc/models/user');
+//var userSystemAdmin = User.
+//console.log(User);
+//console.log(User.systemAdmin);
+// Creating new usertypes
+// var userType = require('./mvc/models/userType');
+// var systemAdmin = new userType({userTitle: "systemAdmin"});
+// var storeAdmin = new userType({userTitle: "storeAdmin"});
+// var storeEmployee = new userType({userTitle: "storeEmployee"});
+// systemAdmin.save();
+// storeAdmin.save();
+// storeEmployee.save();
+// console.log(systemAdmin);
+// console.log(storeAdmin);
+// console.log(storeEmployee);
 
 // Init App
 var app = express();
@@ -99,7 +113,7 @@ app.use(expressValidator({
 
 app.use(function(req, res, next) {
   if (req.session && req.session.passport) {
-    User.findOne({ _id: req.session.passport.user }, function(err, user) {
+    User.user.findOne({ _id: req.session.passport.user }, function(err, user) {
       if (user) {
         req.user = user;
         delete req.user.password; // delete the password from the session

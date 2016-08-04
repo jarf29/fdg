@@ -4,8 +4,11 @@ var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
+// Discriminator Key
+var options = {discriminatorKey: 'userType'};
+
 // User Schema
-var UserSchema = mongoose.Schema({
+var UserSchema = new mongoose.Schema({
 	username: {
 		type: String,
 		index:true,
@@ -43,11 +46,9 @@ var UserSchema = mongoose.Schema({
 	},
 	resetPasswordToken: String,
 	resetPasswordExpires: Date
-});
+}, options);
 
-var User = module.exports = mongoose.model('User', UserSchema);
-
-//var options = {discriminatorKey: 'userType'};
+var User = module.exports.user = mongoose.model('User', UserSchema);
 
 //System Administrator
 var UserSystemAdminSchema = mongoose.Schema({
@@ -57,8 +58,8 @@ var UserSystemAdminSchema = mongoose.Schema({
         max: 9999,
         required: true
     }
-});
-var UserSystemAdmin = User.discriminator('UserSystemAdmin', UserSystemAdminSchema, {discriminatorKey: 'SystemAdmin'});
+}, options);
+var UserSystemAdmin = module.exports.systemAdmin = User.discriminator('systemAdmin', UserSystemAdminSchema);//{discriminatorKey: 'systemAdmin'});
 
 //Store Administrator
 var UserStoreAdminSchema = mongoose.Schema({
@@ -72,8 +73,8 @@ var UserStoreAdminSchema = mongoose.Schema({
 		default: false,
 		required:true
 	}
-});
-var UserStoreAdmin = User.discriminator('UserStoreAdmin', UserStoreAdminSchema, {discriminatorKey: 'StoreAdmin'});
+}, options);
+var UserStoreAdmin = module.exports.storeAdmin = User.discriminator('storeAdmin', UserStoreAdminSchema);//{discriminatorKey: 'storeAdmin'});
 
 //Employee
 var userStoreEmployeeSchema = mongoose.Schema({
@@ -88,8 +89,8 @@ var userStoreEmployeeSchema = mongoose.Schema({
 		required:true
 	},
 	ApprovedBy: String //UserName
-});
-var userStoreEmployee = User.discriminator('userStoreEmployee', userStoreEmployeeSchema, {discriminatorKey: 'StoreEmployee'});
+}, options);
+var userStoreEmployee = module.exports.storeEmployee = User.discriminator('storeEmployee', userStoreEmployeeSchema); //{discriminatorKey: 'storeEmployee'});
 
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {

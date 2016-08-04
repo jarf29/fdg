@@ -6,23 +6,24 @@ var nodemailer = require('nodemailer');
 var async = require('async');
 var crypto = require('crypto');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var ObjectId = Schema.Types.ObjectId;
 var schedule = require('node-schedule');
 
 //Models
 var User = require('../models/user');
+var userType = require('../models/userType');
 
 // Dashboard
 router.get('/dashboard', function(req, res){
 	if(!req.user){
 		res.redirect('/');
 	}else{
-	    if(req.user.userType_id.toString() === "57a0aba6961847160b3dae2e"){
-	      res.render('dashboard', {userTypeAdmin: true});
-	    }else{
-	      res.render('dashboard', {userTypeAdmin: false});
-	    }
+	    userType.findOne({ userTitle: "systemAdmin"}, function(err, usert) {
+	        if (usert._id.toString() == req.user.userType_id)
+	            res.redirect('/admin/dashboard');
+	            //res.render('dashboard', {userTypeAdmin: true});
+    	    else
+    	        res.render('dashboard', {userTypeAdmin: false});
+	    });
 	}
 });
 
@@ -112,7 +113,7 @@ router.post('/register', function(req, res){
 	var password2 = req.body.password2;
 	var name = req.body.name;
   var lastname = req.body.lastname;
-  var userType = req.body.userType;
+  var userTypebody = req.body.userType;
   
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -130,14 +131,22 @@ router.post('/register', function(req, res){
 			errors:errors
 		});
 	} else {
-		var newUser = new User({
+	  var usrTId;
+	  userType.findOne({userTitle: userTypebody}, function(err, usrt){
+	  if (err) throw err;
+       usrTId = usrt._id;
+    });
+      
+    var usrParams = {      
       username: username,
 			email:email,
 			password: password,
       name: name,
       lastname: lastname,
-      userType_id: "57a0aba6961847160b3dae2e"//userType
-		});
+      userType_id: usrTId
+    };
+    
+		var newUser = new User.systemAdmin(usrParams);
 
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
@@ -180,15 +189,17 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/',failureFlash: true}),
+  passport.authenticate('local', {
+    successRedirect:'/users/dashboard', failureRedirect:'/',failureFlash: true
+  }),
   function(req, res) {
     res.redirect('/');
-   var dateExpiration = new Date(Date.now() + 10000);
-       var j = schedule.scheduleJob(dateExpiration, function(){
-        console.log('Cookie expired');
-        // How can I redirect to login page after cookie session expires?
-        //redirect('/login')
-    });
+  // var dateExpiration = new Date(Date.now() + 10000);
+  //     var j = schedule.scheduleJob(dateExpiration, function(){
+  //       console.log('Cookie expired');
+  //       // How can I redirect to login page after cookie session expires?
+  //       //redirect('/login')
+  //   });
   });
 
 router.get('/logout', function(req, res){
