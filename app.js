@@ -15,52 +15,9 @@ var db = mongoose.connection;
 var routes = require('./mvc/controllers/index');
 var users = require('./mvc/controllers/users');
 var User = require('./mvc/models/user');
-//var userSystemAdmin = User.
-//console.log(User);
-//console.log(User.systemAdmin);
-// Creating new usertypes
-// var userType = require('./mvc/models/userType');
-// var systemAdmin = new userType({userTitle: "systemAdmin"});
-// var storeAdmin = new userType({userTitle: "storeAdmin"});
-// var storeEmployee = new userType({userTitle: "storeEmployee"});
-// systemAdmin.save();
-// storeAdmin.save();
-// storeEmployee.save();
-// console.log(systemAdmin);
-// console.log(storeAdmin);
-// console.log(storeEmployee);
 
 // Init App
 var app = express();
-
-//Handlebars Helpers
- var hbs = exphbs.create({
-     // Specify helpers which are only registered on this instance.
-     helpers: {
-         userTypeAdmin: function (userType){ 
- 			if(userType === 'Admin'){
- 				return true; 
- 			}else{
- 				return false;
- 			}			
- 		}		
-     }
- });
-
-/*hbhprs.registerHelper('if_eq', function(a, b, opts) {
-    if(a === b)
-        return opts.fn(this);
-    else
-        return opts.inverse(this);
-}); */
-
-/*var hbs = exphbs.registerHelper('if_userType', function(userType, options) {
-  if(userType === "systemAdmin") {
-    return true;
-  } else {
-    return false;
-  }
-});*/
 
 // View Engine
 var viewsPath = path.join(__dirname, 'mvc', 'views');

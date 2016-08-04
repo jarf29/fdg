@@ -6,7 +6,7 @@ var nodemailer = require('nodemailer');
 var async = require('async');
 var crypto = require('crypto');
 var mongoose = require('mongoose');
-var schedule = require('node-schedule');
+//var schedule = require('node-schedule');
 
 //Models
 var User = require('../models/user');
@@ -20,7 +20,6 @@ router.get('/dashboard', function(req, res){
 	    userType.findOne({ userTitle: "systemAdmin"}, function(err, usert) {
 	        if (usert._id.toString() == req.user.userType_id)
 	            res.redirect('/admin/dashboard');
-	            //res.render('dashboard', {userTypeAdmin: true});
     	    else
     	        res.render('dashboard', {userTypeAdmin: false});
 	    });
@@ -146,7 +145,18 @@ router.post('/register', function(req, res){
       userType_id: usrTId
     };
     
-		var newUser = new User.systemAdmin(usrParams);
+    var cny = require("../models/company");
+    if (userTypebody === "systemAdmin"){
+       var newUser = new User.systemAdmin(usrParams);
+    }else{
+      if (userTypebody === "storeAdmin"){
+        cny.findOne({companyName: "Test"}, function(err, c) {
+           usrParams.company = cny._id; 
+        });
+        var newUser = new User.storeAdmin(usrParams);
+      }else
+        var newUser = new User.storeEmployee(usrParams);
+    }
 
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
@@ -189,17 +199,9 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {
-    successRedirect:'/users/dashboard', failureRedirect:'/',failureFlash: true
-  }),
+  passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/',failureFlash: true}),
   function(req, res) {
     res.redirect('/');
-  // var dateExpiration = new Date(Date.now() + 10000);
-  //     var j = schedule.scheduleJob(dateExpiration, function(){
-  //       console.log('Cookie expired');
-  //       // How can I redirect to login page after cookie session expires?
-  //       //redirect('/login')
-  //   });
   });
 
 router.get('/logout', function(req, res){

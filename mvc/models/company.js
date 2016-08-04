@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.Types.ObjectId;
 
 var CompanySchema = mongoose.Schema({
     nit: {
@@ -11,21 +13,14 @@ var CompanySchema = mongoose.Schema({
         required: true
     },
     city: {
-        type: Integer,
+        type: ObjectId,
+        ref: 'city',
         required: true
     },
-    address: {
-        type: String
-    },
-    phone: {
-        type: String
-    },
-    email: {
-        type: String
-    },
-    representative: {
-        type: String
-    }
+    address: String,
+    phone: String,
+    email: String,
+    representative: String
 });
 
 var Company = module.exports = mongoose.model('Company', CompanySchema);

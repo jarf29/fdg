@@ -9,7 +9,7 @@ router.get('/', ensureAuthenticated, function(req, res){
 	res.redirect('/users/dashboard');	
 });
 
-// Dashboard
+// Admin Dashboard
 router.get('/admin/dashboard', function(req, res){
 	if(!req.user){
 		res.redirect('/');
@@ -23,20 +23,20 @@ router.get('/admin/dashboard', function(req, res){
 	}
 });
 
+// Admin Manage Users
+router.get('/admin/manage_users', function(req, res){
+	if (!req.user)
+		res.redirect('/');
+	else
+		res.render('admin_users', {layout: 'layout', userTypeAdmin: true});
+});
+
 // Admin Appointments
 router.get('/admin/appointments', function(req, res){
 	if (!req.user)
 		res.redirect('/');
 	else	
 		res.render('appointments', {layout: 'layout', userTypeAdmin: true});
-});
-
-// Customers->Cities
-router.get('/admin/manage_users', function(req, res){
-	if (!req.user)
-		res.redirect('/');
-	else
-		res.render('admin_users', {layout: 'layout', userTypeAdmin: true});
 });
 
 // Customers->Companies
