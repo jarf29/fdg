@@ -70,11 +70,11 @@ var hbs = exphbs.create({
 */
 
 // Seed Data: Creating companies and cities
-/*
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fdg');
 var db = mongoose.connection;
-
+/*
 var city = require('./mvc/models/city');
 var thecity = new city({city: "Barranquilla"});
 thecity.save();
@@ -88,3 +88,64 @@ var params ={
 var thecompany = new company(params);
 thecompany.save();
 */
+
+  //   var userType = require('./mvc/models/userType');
+  //   var userTypebody = "storeAdmin"
+	 // var usrTId = "HOLA";
+	 // userType.findOne({userTitle: userTypebody}, function(err, usrt){
+	 // if (err) throw err;
+  //     usrTId = usrt._id;
+  //     console.log(usrTId);
+  //   });
+  //   console.log(usrTId);
+  // var cny = require("./mvc/models/company"); 
+  // var usrParms = {};
+  // var usrtype = "storeAdmin";
+   
+// var parameters = function(usrParms, usrtype){
+//   if (usrtype === "systemAdmin"){
+//     usrParms.pin = 9999;
+//   }else {
+//       if (usrtype === "storeAdmin"){
+//         cny.findOne({companyName: "Test"}, function(err, c) {
+//         var  usrParams.company = c._id;
+//           usrParams.userApproval = false;
+//         });
+//       }
+//   }
+//   return usrParams;
+// }
+
+var cny = require("./mvc/models/company"); 
+var usrParams = {s:1};
+var usrtype = "storeAdmin";
+
+// function parameters(usrParms, usrtype) {
+  
+// if (usrtype === "systemAdmin"){
+//     usrParms.pin = 9999;
+//   }else if (usrtype === "storeAdmin"){
+//       var v = getParmsbyQuery();
+//       console.log(v);
+//     }else{
+      
+//     }
+//     return usrParms;
+// }
+
+function getParms (usrParams, usrtype, callback) {
+  if (usrtype === "systemAdmin")
+    usrParams.pin = 9999;
+  else if (usrtype === "storeAdmin"){
+    cny.findOne({companyName: "Test"}, function(err, c) {
+      usrParams.company = c._id;
+    });
+    callback(null, usrParams);
+  }
+}
+
+getParms(usrParams, usrtype, function(err, compa){
+  if (err) console.log(err)
+  console.log(compa);
+});
+// var p = parameters(usrParams, usrtype);

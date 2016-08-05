@@ -11,7 +11,8 @@ var mongoose = require('mongoose');
 //Models
 var User = require('../models/user');
 var userType = require('../models/userType');
-
+var cny = require("../models/company");
+  
 // Dashboard
 router.get('/dashboard', function(req, res){
 	if(!req.user){
@@ -145,23 +146,38 @@ router.post('/register', function(req, res){
       userType_id: usrTId
     };
     
-    var cny = require("../models/company");
-    if (userTypebody === "systemAdmin"){
-       var newUser = new User.systemAdmin(usrParams);
-    }else{
-      if (userTypebody === "storeAdmin"){
-        cny.findOne({companyName: "Test"}, function(err, c) {
-           usrParams.company = cny._id; 
-        });
-        var newUser = new User.storeAdmin(usrParams);
+  var newUser;
+  getParms(usrParams, userTypebody, function(err, usrParmts){
+    if (err) console.log(err)
+    if (userTypebody === "systemAdmin")
+      newUser = new User.systemAdmin(usrParams);
+    else if (userTypebody === "storeAdmin"){
+      console.log(usrParams);
+      newUser = new User.storeAdmin(usrParams);
       }else
-        var newUser = new User.storeEmployee(usrParams);
-    }
-
-		User.createUser(newUser, function(err, user){
+      newUser = new User.storeEmployee(usrParams);
+    
+    User.createUser(newUser, function(err, user){
 			if(err) throw err;
 			console.log(user);
 		});
+  });
+    
+    // if (userTypebody === "systemAdmin"){
+    //   var newUser = new User.systemAdmin(usrParams);
+    // }else{
+    //   if (userTypebody === "storeAdmin"){
+    //       cny.findOne({companyName: "Test"}, function(err, c) {
+    //       usrParams.company = c._id;
+    //       usrParams.userApproval = false;
+    //     });
+    //     var newUser = new User.storeAdmin(usrParams);
+    //   }else
+    //     var newUser = new User.storeEmployee(usrParams);
+    // }
+    
+    // var newUser
+
 
 		req.flash('success_msg', 'Has sido registrado satisfactoriamente. Te llegará un correo de confirmación una vez el administrador autorice tu cuenta');
 
@@ -211,5 +227,17 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/');
 });
+
+function getParms (usrParams, usrtype, callback) {
+  if (usrtype === "systemAdmin")
+    usrParams.pin = 9999;
+  else if (usrtype === "storeAdmin"){
+    cny.findOne({companyName: "Test"}, function(err, c) {
+      usrParams.company = c._id;
+      usrParams.userApproval = false;
+      callback(null, usrParams);
+    });
+  }
+}
 
 module.exports = router;
