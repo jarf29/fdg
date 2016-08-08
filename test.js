@@ -1,5 +1,17 @@
+//    Creating new MongoDBObjects
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/fdg');
+mongoose.connection;
+var LocalStoreSchema = {
+    storeName: "Default",
+    companyId: "57a3c291f9ac294015f05aaa"
+};
+var localStore = require('./mvc/models/store');
+var store = new localStore(LocalStoreSchema);
 
-//    Creating new usertypes
+store.save();
+console.log(store);
+
 /*
 var userType = require('./mvc/models/userType');
 var systemAdmin = new userType({userTitle: "systemAdmin"});
@@ -69,69 +81,12 @@ var hbs = exphbs.create({
     });
 */
 
-// Seed Data: Creating companies and cities
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fdg');
-var db = mongoose.connection;
+// Callback into Async functions.
 /*
-var city = require('./mvc/models/city');
-var thecity = new city({city: "Barranquilla"});
-thecity.save();
-console.log(thecity);
-var company = require('./mvc/models/company');
-var params ={
-    nit: 123456789,
-    companyName: "Test",
-    city: "57a3c1af33ae8fcf14683e12"
-}
-var thecompany = new company(params);
-thecompany.save();
-*/
-
-  //   var userType = require('./mvc/models/userType');
-  //   var userTypebody = "storeAdmin"
-	 // var usrTId = "HOLA";
-	 // userType.findOne({userTitle: userTypebody}, function(err, usrt){
-	 // if (err) throw err;
-  //     usrTId = usrt._id;
-  //     console.log(usrTId);
-  //   });
-  //   console.log(usrTId);
-  // var cny = require("./mvc/models/company"); 
-  // var usrParms = {};
-  // var usrtype = "storeAdmin";
-   
-// var parameters = function(usrParms, usrtype){
-//   if (usrtype === "systemAdmin"){
-//     usrParms.pin = 9999;
-//   }else {
-//       if (usrtype === "storeAdmin"){
-//         cny.findOne({companyName: "Test"}, function(err, c) {
-//         var  usrParams.company = c._id;
-//           usrParams.userApproval = false;
-//         });
-//       }
-//   }
-//   return usrParams;
-// }
-
 var cny = require("./mvc/models/company"); 
 var usrParams = {s:1};
 var usrtype = "storeAdmin";
 
-// function parameters(usrParms, usrtype) {
-  
-// if (usrtype === "systemAdmin"){
-//     usrParms.pin = 9999;
-//   }else if (usrtype === "storeAdmin"){
-//       var v = getParmsbyQuery();
-//       console.log(v);
-//     }else{
-      
-//     }
-//     return usrParms;
-// }
 
 function getParms (usrParams, usrtype, callback) {
   if (usrtype === "systemAdmin")
@@ -140,7 +95,7 @@ function getParms (usrParams, usrtype, callback) {
     cny.findOne({companyName: "Test"}, function(err, c) {
       usrParams.company = c._id;
     });
-    callback(null, usrParams);
+    callback(null, null, usrParams);
   }
 }
 
@@ -148,4 +103,6 @@ getParms(usrParams, usrtype, function(err, compa){
   if (err) console.log(err)
   console.log(compa);
 });
-// var p = parameters(usrParams, usrtype);
+var p = parameters(usrParams, usrtype);
+*/
+

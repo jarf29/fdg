@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId = Schema.ObjectId;
+var ObjectId = Schema.Types.ObjectId;
 
 var LocalStoreSchema = mongoose.Schema({
     storeName: {
@@ -21,12 +21,7 @@ var LocalStoreSchema = mongoose.Schema({
     },
     email: {
         type: String
-    },
-    administrator:{
-        type: ObjectId,
-        ref: 'user',
-        required: true
     }
 });
 
-var LocalStore = module.exports = mongoose.model('LocalStore', LocalStoreSchema);
+var LocalStore = module.exports = mongoose.model('Store', LocalStoreSchema);

@@ -11,8 +11,9 @@ var mongoose = require('mongoose');
 //Models
 var User = require('../models/user');
 var userType = require('../models/userType');
-var cny = require("../models/company");
-  
+var company = require("../models/company");
+var store = require("../models/store");
+
 // Dashboard
 router.get('/dashboard', function(req, res){
 	if(!req.user){
@@ -125,62 +126,58 @@ router.post('/register', function(req, res){
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
 	var errors = req.validationErrors();
-
+	var newUser;
+  var usrParams = {      
+      username: username,
+			email:email,
+			password: password,
+      name: name,
+      lastname: lastname
+    };
+    
 	if(errors){
 		res.render('register',{layout: 'auth',
 			errors:errors
 		});
 	} else {
-	  var usrTId;
-	  userType.findOne({userTitle: userTypebody}, function(err, usrt){
-	  if (err) throw err;
-       usrTId = usrt._id;
-    });
+    userType.findOne({userTitle: userTypebody}, function(err, usrt){
       
-    var usrParams = {      
-      username: username,
-			email:email,
-			password: password,
-      name: name,
-      lastname: lastname,
-      userType_id: usrTId
-    };
-    
-  var newUser;
-  getParms(usrParams, userTypebody, function(err, usrParmts){
-    if (err) console.log(err)
-    if (userTypebody === "systemAdmin")
-      newUser = new User.systemAdmin(usrParams);
-    else if (userTypebody === "storeAdmin"){
-      console.log(usrParams);
-      newUser = new User.storeAdmin(usrParams);
-      }else
-      newUser = new User.storeEmployee(usrParams);
-    
-    User.createUser(newUser, function(err, user){
-			if(err) throw err;
-			console.log(user);
-		});
-  });
-    
-    // if (userTypebody === "systemAdmin"){
-    //   var newUser = new User.systemAdmin(usrParams);
-    // }else{
-    //   if (userTypebody === "storeAdmin"){
-    //       cny.findOne({companyName: "Test"}, function(err, c) {
-    //       usrParams.company = c._id;
-    //       usrParams.userApproval = false;
-    //     });
-    //     var newUser = new User.storeAdmin(usrParams);
-    //   }else
-    //     var newUser = new User.storeEmployee(usrParams);
-    // }
-    
-    // var newUser
-
-
+      //Assigning User Type
+    	if (err) throw err;
+    	    usrParams.userType_id = usrt._id;
+    	    
+    	 //Assigning User Params
+    	if (userTypebody === "systemAdmin"){
+          usrParams.pin = 9999;
+          newUser = new User.systemAdmin(usrParams);
+          User.createUser(newUser, function(err, user){
+        		if(err) throw err;
+        		console.log(user);
+        	});          
+        }else if (userTypebody === "storeAdmin"){
+          company.findOne({companyName: "Default"}, function(err, cny) {
+            if (err) throw err;
+            usrParams.company_id = cny._id;
+            newUser = new User.storeAdmin(usrParams);
+            User.createUser(newUser, function(err, user){
+        			if(err) throw err;
+        			console.log(user);
+        		});
+          });
+        }else{
+          store.findOne({storeName: "Default"}, function(err, st) {
+            if (err) throw err;
+            usrParams.store_id = st._id;
+            newUser = new User.storeEmployee(usrParams);
+            User.createUser(newUser, function(err, user){
+        			if(err) throw err;
+        			console.log(user);
+        		});
+          });
+        }
+    });
+		
 		req.flash('success_msg', 'Has sido registrado satisfactoriamente. Te llegará un correo de confirmación una vez el administrador autorice tu cuenta');
-
 		res.redirect('/');
 	}
 });
@@ -227,17 +224,5 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/');
 });
-
-function getParms (usrParams, usrtype, callback) {
-  if (usrtype === "systemAdmin")
-    usrParams.pin = 9999;
-  else if (usrtype === "storeAdmin"){
-    cny.findOne({companyName: "Test"}, function(err, c) {
-      usrParams.company = c._id;
-      usrParams.userApproval = false;
-      callback(null, usrParams);
-    });
-  }
-}
 
 module.exports = router;

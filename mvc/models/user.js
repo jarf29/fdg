@@ -63,7 +63,7 @@ var UserSystemAdmin = module.exports.systemAdmin = User.discriminator('systemAdm
 
 //Store Administrator
 var UserStoreAdminSchema = mongoose.Schema({
-	company:{
+	company_id:{
 		type: ObjectId,
 		ref: 'company',
 		required:true
@@ -78,9 +78,9 @@ var UserStoreAdmin = module.exports.storeAdmin = User.discriminator('storeAdmin'
 
 //Employee
 var userStoreEmployeeSchema = mongoose.Schema({
-	store:{
+	store_id:{
 		type: ObjectId,
-		ref: 'companyLocalStore',
+		ref: 'localStore',
 		required:true
 	},
 	userApproval:{
