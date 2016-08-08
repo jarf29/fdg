@@ -152,7 +152,6 @@ router.post('/register', function(req, res){
           newUser = new User.systemAdmin(usrParams);
           User.createUser(newUser, function(err, user){
         		if(err) throw err;
-        		console.log(user);
         	});          
         }else if (userTypebody === "storeAdmin"){
           company.findOne({companyName: "Default"}, function(err, cny) {
@@ -161,7 +160,6 @@ router.post('/register', function(req, res){
             newUser = new User.storeAdmin(usrParams);
             User.createUser(newUser, function(err, user){
         			if(err) throw err;
-        			console.log(user);
         		});
           });
         }else{
@@ -171,7 +169,6 @@ router.post('/register', function(req, res){
             newUser = new User.storeEmployee(usrParams);
             User.createUser(newUser, function(err, user){
         			if(err) throw err;
-        			console.log(user);
         		});
           });
         }
