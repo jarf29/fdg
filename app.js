@@ -1,26 +1,27 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
-var expressValidator = require('express-validator');
-var exphbs = require('express-handlebars');
+'use strict';
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+const expressValidator = require('express-validator');
+const exphbs = require('express-handlebars');
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/fdg');
-var db = mongoose.connection;
-var routes = require('./mvc/controllers/index');
-var users = require('./mvc/controllers/users');
-var User = require('./mvc/models/user');
+const db = mongoose.connection;
+const routes = require('./mvc/controllers/index');
+const users = require('./mvc/controllers/users');
+const User = require('./mvc/models/user');
 
 // Init App
-var app = express();
+const app = express();
 
 // View Engine
-var viewsPath = path.join(__dirname, 'mvc', 'views');
+const viewsPath = path.join(__dirname, 'mvc', 'views');
 app.set('views', viewsPath);
 app.engine('handlebars', exphbs({defaultLayout:'layout', layoutsDir: path.join(viewsPath, 'layouts')}));
 app.set('view engine', 'handlebars');
@@ -53,7 +54,7 @@ app.use(passport.session());
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
+      let namespace = param.split('.')
       , root    = namespace.shift()
       , formParam = root;
 
@@ -68,7 +69,8 @@ app.use(expressValidator({
   }
 }));
 
-app.use(function(req, res, next) {
+
+let sessionMidleware = (req, res, next) => {
   if (req.session && req.session.passport) {
     User.user.findOne({ _id: req.session.passport.user }, function(err, user) {
       if (user) {
@@ -83,7 +85,9 @@ app.use(function(req, res, next) {
   } else {
     next();
   }
-});
+}
+
+app.use(sessionMidleware);
 
 // Connect Flash
 app.use(flash());

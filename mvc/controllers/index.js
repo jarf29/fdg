@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-var userType = require('../models/userType');
+const express = require('express');
+const router = express.Router();
+const userType = require('../models/userType');
 
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
@@ -53,3 +54,7 @@ function ensureAuthenticated(req, res, next){
 }
 
 module.exports = router;
+
+/*module.exports = {
+	router = require('./routes')();
+}*/

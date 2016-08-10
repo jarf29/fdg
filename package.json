@@ -4,7 +4,8 @@
   "description": "WebApp for FDG Engineering",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,9 @@
   },
   "author": "Andres Lastra",
   "license": "ISC",
+  "engine": {
+    "node": "4.4.5"
+  },
   "homepage": "https://bitbucket.org/prodigytech/fdg-engineering-web#readme",
   "dependencies": {
     "async": "^2.0.0-rc.5",
