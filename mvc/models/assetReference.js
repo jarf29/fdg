@@ -8,4 +8,4 @@ var AssetRefSchema = mongoose.Schema({
     }
 });
 
-var AssetRef = module.exports = mongoose.model('AssetRef', AssetReferenceSchema);
+var AssetRef = module.exports = mongoose.model('AssetRef', AssetRefSchema);

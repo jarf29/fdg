@@ -16,17 +16,16 @@ var company = require("../models/company");
 var store = require("../models/store");
 
 // Dashboard
-router.get('/dashboard', function(req, res){
-	if(!req.user){
-		res.redirect('/');
-	}else{
-	    userType.findOne({ userTitle: "systemAdmin"}, function(err, usert) {
-	        if (usert._id.toString() == req.user.userType_id)
+router.get('/dashboard', ensureAuthenticated, function(req, res){
+	 userType.findOne({ userTitle: "systemAdmin"}, function(err, usert) {
+	   if (usert._id.toString() == req.user.userType_id)
 	            res.redirect('/admin/dashboard');
-    	    else
+     else
+    	    if (usert.userApproval)
     	        res.render('dashboard', {userTypeAdmin: false});
+    	    else
+    	        res.render('unauthorized', {layout: 'accessDenied'});
 	    });
-	}
 });
 
 // Register
@@ -210,7 +209,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/',failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/dashboard', failureRedirect:'/',failureFlash: true}),
   function(req, res) {
     res.redirect('/');
   });
@@ -222,5 +221,14 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/');
 });
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		res.render('login', {layout: 'auth'});
+	}
+}
+
 
 module.exports = router;

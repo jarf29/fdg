@@ -21,7 +21,8 @@ var LocalStoreSchema = mongoose.Schema({
     },
     email: {
         type: String
-    }
+    },
+    representative: String
 });
 
 var LocalStore = module.exports = mongoose.model('Store', LocalStoreSchema);

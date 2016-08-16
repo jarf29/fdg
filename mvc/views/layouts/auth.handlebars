@@ -2,7 +2,7 @@
 <html lang="en-us" id="extr-page">
 	<head>
 		<meta charset="utf-8">
-		<title> SmartAdmin</title>
+		<title> FDG Ingeniería y Servicios </title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -28,8 +28,8 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="/css/demo.min.css">
 
 		<!-- #FAVICONS -->
-		<link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="https://s3-us-west-2.amazonaws.com/fdg-ingenieria/images/Logo_03_25x13.png" type="image/x-icon">
+		<link rel="icon" href="https://s3-us-west-2.amazonaws.com/fdg-ingenieria/images/Logo_03_25x13.png" type="image/x-icon">
 
 		<!-- #GOOGLE FONT -->
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
@@ -84,11 +84,11 @@
 						<div class="alert alert-danger">Por favor verificar los datos ingresados.</div>
 					{{/if}}
 					
-					{{#if errors}}
+{{!--					{{#if errors}}
 						{{#each errors}}
 							<div class="alert alert-danger">{{msg}}</div>
 						{{/each}}
-					{{/if}}				
+					{{/if}}	--}}			
 				</div>        
 			</div>
 					
@@ -145,7 +145,7 @@
 						},
 						password : {
 							required : true,
-							minlength : 3,
+							minlength : 5,
 							maxlength : 20
 						}
 					},
@@ -153,11 +153,11 @@
 					// Messages for form validation
 					messages : {
 						email : {
-							required : 'Please enter your email address',
-							email : 'Please enter a VALID email address'
+							required : 'Por favor ingresa tu usuario',
+							email : 'Por favor ingresar un usuario válido'
 						},
 						password : {
-							required : 'Please enter your password'
+							required : 'Por favor ingresa tu contraseña'
 						}
 					},
 

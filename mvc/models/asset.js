@@ -27,25 +27,25 @@ var AssetSchema = mongoose.Schema({
     },
     owner: {
         type: ObjectId,
-        ref: 'companyLocalStore',
+        ref: 'store',
         required: true
     },
-    price: {
+    marketPrice: {
         type: Number,
         min: 0
     },
-    purchaseDate: {
+    registryDate: {
         type: Date
-    },
-    comments: {
-        type: String
     },
     factoryWarnings: {
         type: String
     },
     images: {
-        type: Array
-    }
+        type: String
+    },
+    comments: {
+        type: String
+    }    
 });
 
 var Asset = module.exports = mongoose.model('Asset', AssetSchema);

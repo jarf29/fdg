@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Schema.ObjectId;
 
 var TicketSchema = mongoose.Schema({
     title: {
@@ -18,17 +19,20 @@ var TicketSchema = mongoose.Schema({
         type: ObjectId,
         ref: 'companyLocalStore'
     },
-    openningDate: {
-        type: Date,
-        required: true
-    },
-    lastEmployeeId: {
+    storeEmployeeId: {
         type: ObjectId,
         ref: 'user',
         required: true
     },
+    openningDate: {
+        type: Date,
+        required: true
+    },
+    closingDate: {
+        type: Date
+    },    
     feedback: {
-        type: Integer,
+        type: Number,
         min: 0,
         max: 5
     },
