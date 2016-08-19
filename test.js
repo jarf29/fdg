@@ -130,29 +130,31 @@ var st = new store(
 st.save();*/
 
 // Creating Tickets
-/*var tkt = require("./mvc/models/ticket");
-var moment = require('moment');
-var date =  new Date('Thu Aug 18 2016 18:22:56 GMT-0600 (CST)')
-var newtkt = new tkt(
-  {
-    title: "Default ticket",
-    description: "Test",
-    status: "Pendiente",
-    store_id: "57b5e98f0a940f3010662762",
-    storeEmployeeId: "57b5ea7d8a84be5110014276",
-    openningDate: moment(date).format('YYYY-DD-MM')
-  }
-);
-newtkt.save(function(err, tk){
-  if (err) console.log(err)
-  else console.log(tk)
-}
-  );*/
+// var tkt = require("./mvc/models/ticket");
+// var moment = require('moment');
+// var date =  new Date('Thu Aug 18 2016 18:22:56 GMT-0600 (CST)')
+// var newtkt = new tkt(
+//   {
+//     ticketNumber: "3",
+//     title: "Default ticket",
+//     description: "Test",
+//     status: "Pendiente",
+//     store_id: "57b5e98f0a940f3010662762",
+//     storeEmployee_id: "57b5ea7d8a84be5110014276",
+//     openningDate: Date.now()
+//   }
+// );
+// newtkt.save(function(err, tk){
+//   if (err) console.log(err)
+//   else console.log(tk)
+// }
+//   );
+
+
+// Populating query
 const tickets = require("./mvc/models/ticket");
-var populateQuery = [{path:'storeEmployee_id', select:'username'}];
-tickets.find({}).populate(populateQuery).exec(function(err, tkt){
+//var populateQuery = [{path:'storeEmployee_id', select:'username'}];
+tickets.findOne({}).populate('store_id').populate('storeEmployee_id').exec(function(err, tkt){
   console.log(tkt);
 });
-  
-  
   
