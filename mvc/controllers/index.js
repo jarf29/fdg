@@ -5,7 +5,6 @@ const router = express.Router();
 const User = require("../models/user").user;
 const tickets = require("../models/ticket");
 const userType = require('../models/userType');
-var moment = require('moment');
 
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
@@ -26,10 +25,9 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
 router.get('/admin/dashboard', ensureAuthenticated, function(req, res){
 	 userType.findOne({ userTitle: "systemAdmin"}, function(err, usert) {
 	     if (usert._id.toString() == req.user.userType_id){
-			User.find({}, function(err, users){
-				tickets.find({}, function(err, tkts){
-					res.render('admin_tickets', {userTypeAdmin: true, tkts});		
-				});
+			tickets.find({}).populate('store_id').populate('storeEmployee_id').exec(function(err, tkts){
+				console.log(tkts);
+				res.render('admin_tickets', {userTypeAdmin: true, tkts});
 			});
     	 }else
     	     res.render('custom_dashboard', {userTypeAdmin: false});

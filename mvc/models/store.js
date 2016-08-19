@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
+var City = require('./city');
+var Company = require('./company');
 
 var LocalStoreSchema = mongoose.Schema({
     storeName: {
@@ -8,11 +10,16 @@ var LocalStoreSchema = mongoose.Schema({
         required: true, 
         unique: true
     },
-    companyId:{
+    company_id:{
         type: ObjectId,
-        ref: 'company',
+        ref: 'Company',
         required: true
     },
+    city_id: {
+        type: ObjectId,
+        ref: 'City',
+        required: true
+    },    
     address:{
         type: String
     },

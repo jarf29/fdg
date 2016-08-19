@@ -12,11 +12,6 @@ var CompanySchema = mongoose.Schema({
         type: String,
         required: true
     },
-    city: {
-        type: ObjectId,
-        ref: 'city',
-        required: true
-    },
     address: String,
     phone: String,
     email: String,

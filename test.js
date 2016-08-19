@@ -154,7 +154,32 @@ st.save();*/
 // Populating query
 const tickets = require("./mvc/models/ticket");
 //var populateQuery = [{path:'storeEmployee_id', select:'username'}];
-tickets.findOne({}).populate('store_id').populate('storeEmployee_id').exec(function(err, tkt){
+tickets.find({}).populate('store_id').populate('storeEmployee_id').exec(function(err, tkt){
   console.log(tkt);
 });
-  
+
+
+const store = require("./mvc/models/store");
+/*const city = require("./mvc/models/city");
+const company = require("./mvc/models/company");
+
+store.find({}, function(err, stores) {
+  company.find({}, function(err, companies){
+    city.populate(companies, {path: 'city_id'}, function (err, cities){}).populate(stores, {path: 'company_id'}, function (err, newstores) {
+        console.log(newstores);
+      })
+  });    
+})*/
+var stores = store.find({}).populate('city_id').populate('company_id').exec(function(err, stores){
+    console.log(stores);
+  })
+
+/*tickets.find({}, function(err, tk){
+  store.find({}).populate('city_id').populate('company_id').exec(function(err, stores){
+    console.log(stores);
+  })
+});*/
+
+/*.populate(tk, {path: 'store_id'}, function(err, ticket){
+    console.log(ticket);
+  });*/
