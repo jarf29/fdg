@@ -8,22 +8,37 @@ const session = require('express-session');
 const passport = require('passport');
 const expressValidator = require('express-validator');
 const exphbs = require('express-handlebars');
+var moment = require('moment');
 
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/fdg');
-const db = mongoose.connection;
+// Controllers
 const routes = require('./mvc/controllers/index');
 const users = require('./mvc/controllers/users');
+
+// Models
 const User = require('./mvc/models/user');
 
-// Init App
+// Database
+const db = require('./db/setdb');
+
+// Initializing App
 const app = express();
 
-// View Engine
+// Handlebars Helpers
 const viewsPath = path.join(__dirname, 'mvc', 'views');
+var hbsEngine = exphbs.create({
+    defaultLayout: 'layout',
+    layoutsDir: path.join(viewsPath, 'layouts'),
+    helpers: {
+        formatDate: function (date, format) {
+            return moment(date).format(format);
+        }
+    }
+});
+
+
+// View Engine
 app.set('views', viewsPath);
-app.engine('handlebars', exphbs({defaultLayout:'layout', layoutsDir: path.join(viewsPath, 'layouts')}));
+app.engine('handlebars', hbsEngine.engine);
 app.set('view engine', 'handlebars');
 
 // BodyParser Middleware

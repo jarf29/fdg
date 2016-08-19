@@ -127,7 +127,7 @@ router.post('/register', function(req, res){
 
 	var errors = req.validationErrors();
 	var newUser;
-  var usrParams = {      
+  var usrParams = {
       username: username,
 			email:email,
 			password: password,
@@ -145,16 +145,17 @@ router.post('/register', function(req, res){
       //Assigning User Type
     	if (err) throw err;
     	    usrParams.userType_id = usrt._id;
-    	    
+
     	 //Assigning User Params
     	if (userTypebody === "systemAdmin"){
           usrParams.pin = 9999;
+          
           newUser = new User.systemAdmin(usrParams);
           User.createUser(newUser, function(err, user){
         		if(err) throw err;
         	});          
         }else if (userTypebody === "storeAdmin"){
-          company.findOne({companyName: "Default"}, function(err, cny) {
+          company.findOne({companyName: "Default company"}, function(err, cny) {
             if (err) throw err;
             usrParams.company_id = cny._id;
             newUser = new User.storeAdmin(usrParams);
@@ -163,7 +164,7 @@ router.post('/register', function(req, res){
         		});
           });
         }else{
-          store.findOne({storeName: "Default"}, function(err, st) {
+          store.findOne({storeName: "Default store"}, function(err, st) {
             if (err) throw err;
             usrParams.store_id = st._id;
             newUser = new User.storeEmployee(usrParams);

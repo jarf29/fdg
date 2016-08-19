@@ -60,13 +60,13 @@
 			<div id="logo-group">
 				<span id="logo"> <img src="https://s3-us-west-2.amazonaws.com/fdg-ingenieria/images/Logo_+01_247x53.png" alt="FDG"> </span> {{!--src="/img/logo.png"--}}
 			</div>
-			{{#if login}}
+			{{#unless  login}}
 				<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Necesitas una cuenta?</span> 
 				<a href="/users/register" class="btn btn-danger">Registrarse</a> </span>
 			{{else}}
 				<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Ya estas registrado?</span> 
 				<a href="/" class="btn btn-danger">Iniciar Sesion</a> </span>
-			{{/if}}
+			{{/unless}}
 		</header>
 
 		<div id="main" role="main">

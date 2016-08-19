@@ -28,6 +28,8 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "handlebars": "^4.0.5",
+    "moment": "^2.14.1",
     "mongodb": "*",
     "mongoose": "*",
     "mongoose-schema-extend": "^0.2.2",

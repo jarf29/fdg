@@ -1,7 +1,13 @@
 var mongoose = require('mongoose');
-var ObjectId = mongoose.Schema.ObjectId;
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var TicketSchema = mongoose.Schema({
+    ticketNumber: {
+        type: Number, 
+        required: true,
+        unique: true,
+        min: 1
+    },
     title: {
         type: String, 
         required: true
@@ -11,15 +17,14 @@ var TicketSchema = mongoose.Schema({
         required: true
     },
     status: {
-        type: ObjectId,
-        ref: 'ticketStatus',
+        type: String,
         required: true
     },
-    store: {
+    store_id: {
         type: ObjectId,
-        ref: 'companyLocalStore'
+        ref: 'store'
     },
-    storeEmployeeId: {
+    storeEmployee_id: {
         type: ObjectId,
         ref: 'user',
         required: true
@@ -55,4 +60,4 @@ var TicketSchema = mongoose.Schema({
     }]
 });
 
-var Ticket = module.exports = mongoose.model('Ticket', CompanySchema);
+var Ticket = module.exports = mongoose.model('Ticket', TicketSchema);
