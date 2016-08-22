@@ -11,7 +11,7 @@ const exphbs = require('express-handlebars');
 var moment = require('moment');
 
 // Controllers
-const routes = require('./mvc/controllers/index');
+const routes = require('./mvc/controllers/routes');
 const users = require('./mvc/controllers/users');
 
 // Models
@@ -117,7 +117,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', routes);
-app.use('/users', users);
+// app.use('/users', users);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
