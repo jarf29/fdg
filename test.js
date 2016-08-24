@@ -152,20 +152,20 @@ st.save();*/
 
 
 // Populating query
-const tickets = require("./mvc/models/ticket");
-const store = require("./mvc/models/store");
-var mongoose = require('mongoose').Schema;
+// const tickets = require("./mvc/models/ticket");
+// const store = require("./mvc/models/store");
+// var mongoose = require('mongoose').Schema;
 //var populateQuery = [{path:'storeEmployee_id', select:'username'}];
-tickets.find({}).populate('store_id').populate('storeEmployee_id').exec(function(err, tkt){
-    store.find({}).populate('city_id').populate('company_id').exec(function(err, stores){
-      console.log(store.models);
+// tickets.find({}).populate('store_id').populate('storeEmployee_id').exec(function(err, tkt){
+//     store.find({}).populate('city_id').populate('company_id').exec(function(err, stores){
+//       console.log(store.models);
 /*      var st = new mongoose(store.Schema);
       st = stores;
       st.populate(tkt, {path: 'store_id'}, function (err, tickets) {
         console.log(tickets);
       })*/
-    });
-});
+//     });
+// });
 
 /*const city = require("./mvc/models/city");
 const company = require("./mvc/models/company");
@@ -190,3 +190,5 @@ store.find({}, function(err, stores) {
 /*.populate(tk, {path: 'store_id'}, function(err, ticket){
     console.log(ticket);
   });*/
+  
+  
