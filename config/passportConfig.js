@@ -1,6 +1,8 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('../mvc/models/user');
+var User = require('../mvc/models/user').user;
+
+console.log("Entró en passportConfig");
 
 if (process.env.NODE_ENV === 'production'){
     // Production passport config
@@ -9,6 +11,7 @@ if (process.env.NODE_ENV === 'production'){
     passport.use(new LocalStrategy(
     (username, password, done) =>{
     User.getUserByUsername(username, (err, user) =>{
+        console.log(user);
         if(err) throw err;
         if(!user){
             return done(null, false, {message: 'El usuario ingresado no existe. Verifica nuevamente.'});

@@ -30,12 +30,12 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
 
 // Register
 router.get('/register', function(req, res){
-	res.render('register', {layout: 'auth', login: false});
+	res.render('register', {layout: 'auth', login: true});
 });
 
 // Login
 router.get('/login', function(req, res){
-	res.render('login', {layout: 'auth', login: true, user: req.user});
+	res.render('login', {layout: 'auth', login: false, user: req.user});
 });
 
 // Forgot Password

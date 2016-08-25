@@ -11,9 +11,9 @@ const exphbs = require('express-handlebars');
 var moment = require('moment');
 
 // Controllers
-// const routes = require('./mvc/controllers/index');
-// const users = require('./mvc/controllers/users');
-const routes = require('./mvc/controllers/routes');
+const routes = require('./mvc/controllers/index');
+const users = require('./mvc/controllers/users');
+// const routes = require('./mvc/controllers/routes');
 // Models
 const User = require('./mvc/models/user');
 
@@ -116,8 +116,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/', routes());
-// app.use('/users', users);
+// app.use('/', routes());
+app.use('/', routes);
+app.use('/users', users);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));

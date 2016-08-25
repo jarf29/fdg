@@ -1,11 +1,14 @@
 'use strict';
 const controller = require('./controller');
-const passport = require('../../config/passportConfig');
+// const passport = require('../../config/passportConfig');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('../models/user').user;
 
 module.exports = () => {
     let routes = {
     	'GET': {
-			// GENERAL PORPOUSE ROUTES
+			// General purposes routes
     		'/': (req, res, next) => {
     			if (!req.user)
     				res.render('login', {layout: 'auth', login: false});
@@ -33,7 +36,7 @@ module.exports = () => {
     			}else
     					res.redirect('/');
     		},
-			// ADMIN ROUTES
+			// Admin routes
 			'/admin/dashboard': (req, res, next) => {
 				let tickets = require("../models/ticket");
 				tickets.find({}).populate('store_id').populate('storeEmployee_id').exec((err, tkts) => {
@@ -46,7 +49,7 @@ module.exports = () => {
 				else
 					res.render('admin_users', {layout: 'layout', userTypeAdmin: true});				
 			},
-			// USERS ROUTES
+			// Users routes
 			'/users/register': (req, res, next) => {
 
 			},
@@ -59,8 +62,38 @@ module.exports = () => {
     	},
     	'POST': {
     		'/login': (req, res, next) => {
-			  passport.authenticate('local', {successRedirect:'/dashboard', failureRedirect:'/',failureFlash: true}),
-				(req, res) => {res.redirect('/');}
+    			console.log("Entró en login Ja");
+				passport.use(new LocalStrategy(
+				  function(username, password, done) {
+				   User.getUserByUsername(username, function(err, user){
+				   	if(err) throw err;
+				   	if(!user){
+				   		return done(null, false, {message: 'El usuario ingresado no existe. Verifica nuevamente.'});
+				   	}
+				
+				   	User.comparePassword(password, user.password, function(err, isMatch){
+				   		if(err) throw err;
+				   		if(isMatch){
+				   			return done(null, user);
+				   		} else {
+				   			return done(null, false, {message: 'Contraseña inválida. Verifica nuevamente.'});
+				   		}
+				   	});
+				   });
+				  }));
+					passport.serializeUser(function(user, done) {
+					  done(null, user.id);
+					});
+					
+					passport.deserializeUser(function(id, done) {
+					  User.getUserById(id, function(err, user) {
+					    done(err, user);
+					  });
+					});
+		    
+				  passport.authenticate('local', {successRedirect:'/dashboard', failureRedirect:'/',failureFlash: true}),
+				  function(req, res) {
+				    res.redirect('/');}
     		}
     	},
     	'NA': (req, res, next) => {
