@@ -102,9 +102,17 @@
 													<td>{{storeEmployee_id.username}}</td>
 													<td>{{store_id.storeName}}</td>
 													<td>{{formatDate openningDate "DD-MM-YYYY hh:mm"}}</td>
-													<td><button class="btn btn-info center-block padding-5 label" data-toggle="modal" data-target="#TicketInfoModal"
-													
-													>{{status}}</button></td>
+													<td><button class="btn btn-info center-block padding-5 label view-ticket" data-toggle="modal" 
+														data-target="#TicketInfoModal"
+														data-id ="1"
+														data-number = "{{ticketNumber}}"
+														data-title = "{{title}}"
+														data-description = "{{description}}"
+														data-store = "5"
+														data-city = "6"
+													>
+														{{status}}
+													</button></td>
 												</tr>
 												{{/each}}
 											<tr>
@@ -215,12 +223,12 @@
 								<div class="row">
 									<div class = "col-md-4">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Ticket No." required name="ticketTitle" id="edit-ticket-title" disabled/>
+											<input type="text" class="form-control" placeholder="Ticket No." required name="ticketNum" id="edit-ticket-number"/>
 										</div>
 									</div>
 									<div class = "col-md-8">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Titulo del Ticket" required name="ticketTitle" id="edit-ticket-title" disabled/>
+											<input type="text" class="form-control" placeholder="Titulo del Ticket" required name="ticketTitle" id="edit-ticket-title"/>
 										</div>
 									</div>	
 								</div>
@@ -228,7 +236,7 @@
 								<div class = "row">
 									<div class="col-md-12">
 										<div class="form-group">
-											<textarea class="form-control" placeholder="Descripción" rows="2" name="ticketDescription" id="edit-ticket-description" disabled></textarea>
+											<textarea class="form-control" placeholder="Descripción" rows="2" name="ticketDesc" id="edit-ticket-description"></textarea>
 										</div>
 									</div>
 								</div>
@@ -261,7 +269,7 @@
 												<div class="form-group">
 													<select class="form-control">
 														<optgroup label="Estado">
-															<option disabled selected value>-Seleccionar-</option>
+															<option disabled selected value>Seleccionar</option>
 															<option>Pendiente</option>
 															<option>Asignado</option>
 															<option>En proceso</option>
@@ -272,7 +280,7 @@
 												<div class="form-group">
 													<select class="form-control">
 														<optgroup label="Asignado a:">
-															<option disabled selected value>-Seleccionar-</option>
+															<option disabled selected value>Seleccionar</option>
 															<option>Pedro</option>
 															<option>Pablo</option>
 															<option>Paco</option>
