@@ -6,6 +6,8 @@ const User = require("../models/user").user;
 const tickets = require("../models/ticket");
 const userType = require('../models/userType');
 const stores = require('../models/store');
+const company = require('../models/company');
+
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
 	res.redirect('/dashboard');	
@@ -14,11 +16,11 @@ router.get('/', ensureAuthenticated, function(req, res){
 // General Dashboard
 router.get('/dashboard', ensureAuthenticated, function(req, res){
 	userType.findOne({ userTitle: "systemAdmin"}, function(err, usert) {
-		if (usert._id.toString() == req.user.userType_id)
-	    	res.redirect('/admin/dashboard');
-	     else
-	    	res.redirect('/users/dashboard');
-	    });
+	if (usert._id.toString() == req.user.userType_id)
+	    res.redirect('/admin/dashboard');
+	else
+	    res.redirect('/users/dashboard');
+	});
 });
 
 // Admin Dashboard
@@ -59,7 +61,10 @@ router.get('/admin/customers/cities', ensureAuthenticated,function(req, res){
 
 // Customers->Companies
 router.get('/admin/customers/companies', ensureAuthenticated,function(req, res){
-	res.render('admin_customers_companies', {layout: 'layout', userTypeAdmin: true});
+	company.find({}, (err, companies)=>{
+		console.log(companies)
+		res.render('admin_customers_companies', {layout: 'layout', userTypeAdmin: true, companies});
+	});	
 });
 
 // Admin Edit tickets

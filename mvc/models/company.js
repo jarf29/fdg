@@ -15,7 +15,8 @@ var CompanySchema = mongoose.Schema({
     address: String,
     phone: String,
     email: String,
-    representative: String
+    representative: String,
+    image: String
 });
 
 var Company = module.exports = mongoose.model('Company', CompanySchema);
