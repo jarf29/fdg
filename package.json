@@ -34,7 +34,7 @@
     "mongoose": "*",
     "mongoose-schema-extend": "^0.2.2",
     "node-schedule": "^1.1.1",
-    "nodemailer": "^2.4.2",
+    "nodemailer": "^2.5.0",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"
